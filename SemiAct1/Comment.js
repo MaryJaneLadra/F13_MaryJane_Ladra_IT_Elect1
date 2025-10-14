@@ -29,7 +29,7 @@ export default function Comment() {
   const renderItem = ({ item }) => (
     <View style={styles.commentBox}>
       <Image
-        source={{ uri: "https://cdn-icons-png.flaticon.com/512/147/147144.png" }}
+        source={{ uri: "assets/cpic.png" }}
         style={styles.avatar}
       />
       <View style={styles.commentContent}>
