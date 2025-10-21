@@ -213,7 +213,7 @@ if (msg.includes('ok') || msg.includes('okay')) {
           behavior={Platform.OS === 'ios' ? 'padding' : undefined}
           keyboardVerticalOffset={90}
         >
-          <Text style={styles.headerText}>MY TEERAK 💜</Text>
+          <Text style={styles.headerText}>MESSENGER💜</Text>
 
           <MyFlatList messages={messages} />
 
