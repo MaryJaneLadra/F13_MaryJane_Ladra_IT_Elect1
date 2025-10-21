@@ -176,7 +176,6 @@ export default function Messenger() {
           behavior={Platform.OS === 'ios' ? 'padding' : undefined}
           keyboardVerticalOffset={90}
         >
-          <Text style={styles.headerText}>MESSENGER💜</Text>
           <MyFlatList messages={messages} />
           <View style={styles.inputContainer}>
             <TouchableOpacity style={styles.imageButton} onPress={pickImage}>
@@ -203,16 +202,6 @@ export default function Messenger() {
 const styles = StyleSheet.create({
   container: { flex: 1 },
   innerContainer: { flex: 1, justifyContent: 'flex-end' },
-  headerText: {
-    fontSize: 18,
-    padding: 15,
-    borderBottomWidth: 1,
-    borderColor: 'rgba(190, 140, 255, 0.3)',
-    textAlign: 'center',
-    fontWeight: 'bold',
-    color: '#fff',
-    backgroundColor: 'rgba(150, 80, 200, 0.5)',
-  },
   backgroundImage: { flex: 1, width: '100%', height: '100%' },
   messageRow: { flexDirection: 'row', marginVertical: 4, marginHorizontal: 12, alignItems: 'flex-end' },
   rightAlign: { alignSelf: 'flex-end' },
