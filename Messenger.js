@@ -15,7 +15,7 @@ import {
 import * as ImagePicker from 'expo-image-picker';
 import { Ionicons } from '@expo/vector-icons';
 
-import userPhoto from './assets/Screen.jpeg'; 
+import userPhoto from './assets/Screen.jpeg';
 import chatmatePhoto from './assets/Chatmate.png';
 import bgPhoto from './assets/mjladra.jpg';
 
@@ -31,15 +31,11 @@ const MyFlatList = ({ messages }) => {
             item.sender === 'you' ? styles.rightAlign : styles.leftAlign,
           ]}
         >
-          {item.sender === 'chatmate' && (
-            <Image source={chatmatePhoto} style={styles.avatar} />
-          )}
+          {item.sender === 'chatmate' && <Image source={chatmatePhoto} style={styles.avatar} />}
           <View
             style={[
               styles.messageBubble,
-              item.sender === 'you'
-                ? styles.yourBubble
-                : styles.chatmateBubble,
+              item.sender === 'you' ? styles.yourBubble : styles.chatmateBubble,
             ]}
           >
             {item.image ? (
@@ -48,23 +44,18 @@ const MyFlatList = ({ messages }) => {
               <Text
                 style={[
                   styles.messageText,
-                  item.sender === 'you'
-                    ? styles.yourText
-                    : styles.chatmateText,
+                  item.sender === 'you' ? styles.yourText : styles.chatmateText,
                 ]}
               >
                 {item.text}
               </Text>
             )}
           </View>
-
-          {item.sender === 'you' && (
-            <Image source={userPhoto} style={styles.avatar} />
-          )}
+          {item.sender === 'you' && <Image source={userPhoto} style={styles.avatar} />}
         </View>
       )}
       inverted
-      contentContainerStyle={{ flexGrow: 1, justifyContent: 'flex-end' }}
+      contentContainerStyle={{ flexGrow: 1, justifyContent: 'flex-end', paddingVertical: 10 }}
     />
   );
 };
@@ -74,71 +65,42 @@ export default function Messenger() {
   const [inputText, setInputText] = useState('');
   const nextId = useRef(1);
 
-    const getSmartReply = (userMessage) => {
+  const getSmartReply = (userMessage) => {
     const msg = userMessage.toLowerCase();
 
     if (msg.includes('hi') || msg.includes('hello') || msg.includes('hey')) {
-      const greetings = [
-        'Hey there!',
-        'Hello! How’s your day going?',
-        'Hi! What’s up?',
-        'Heyy',
-      ];
+      const greetings = ['Hey there!', 'Hello! How’s your day going?', 'Hi! What’s up?', 'Heyy'];
       return greetings[Math.floor(Math.random() * greetings.length)];
     }
-
     if (msg.includes('how are you')) {
-      const responses = [
-        'I’m doing great! Thanks for asking 💜',
-        'Feeling good today, you?',
-      ];
+      const responses = ['I’m doing great! Thanks for asking 💜', 'Feeling good today, you?'];
       return responses[Math.floor(Math.random() * responses.length)];
     }
-
     if (msg.includes('thank')) {
-      const thanksReplies = [
-        'You’re very welcome',
-      ];
+      const thanksReplies = ['You’re very welcome'];
       return thanksReplies[Math.floor(Math.random() * thanksReplies.length)];
     }
-
     if (msg.includes('bye')) {
-      const byeReplies = [
-        'Bye! Take care',
-        'See you soon',
-        'Goodbye! Hope we chat again ',
-      ];
+      const byeReplies = ['Bye! Take care', 'See you soon', 'Goodbye! Hope we chat again'];
       return byeReplies[Math.floor(Math.random() * byeReplies.length)];
     }
-
     if (msg.includes('haha') || msg.includes('lol') || msg.includes('😂')) {
-      const laughReplies = [
-        'Haha! You’re funny',
-        'LOL same here',
-      ];
+      const laughReplies = ['Haha! You’re funny', 'LOL same here'];
       return laughReplies[Math.floor(Math.random() * laughReplies.length)];
     }
-
     if (msg.includes('love')) {
-      const loveReplies = [
-        'that’s so sweet!',
-        'That made me smile',
-      ];
+      const loveReplies = ['that’s so sweet!', 'That made me smile'];
       return loveReplies[Math.floor(Math.random() * loveReplies.length)];
     }
-if (msg.includes('ok') || msg.includes('okay')) {
-      const okReplies = [
-        'Got it',
-        'Okayyy',
-        'Cool!',
-      ];
+    if (msg.includes('ok') || msg.includes('okay')) {
+      const okReplies = ['Got it', 'Okayyy', 'Cool!'];
       return okReplies[Math.floor(Math.random() * okReplies.length)];
     }
     const randomReplies = [
       'That’s interesting',
       'Cool',
       'Haha nice one!',
-      'Oh wow ',
+      'Oh wow',
       'Same here!',
       'Hmm, I get you',
       'Not bad!',
@@ -205,23 +167,21 @@ if (msg.includes('ok') || msg.includes('okay')) {
       }, 1500);
     }
   };
+
   return (
     <SafeAreaView style={styles.container}>
-      <ImageBackground source={bgPhoto} style={styles.backgroundImage} resizeMode="cover">
+      <ImageBackground source={bgPhoto} style={styles.backgroundImage}>
         <KeyboardAvoidingView
           style={styles.innerContainer}
           behavior={Platform.OS === 'ios' ? 'padding' : undefined}
           keyboardVerticalOffset={90}
         >
           <Text style={styles.headerText}>MESSENGER💜</Text>
-
           <MyFlatList messages={messages} />
-
           <View style={styles.inputContainer}>
             <TouchableOpacity style={styles.imageButton} onPress={pickImage}>
               <Text style={styles.imageButtonText}>📷</Text>
             </TouchableOpacity>
-
             <TextInput
               style={styles.textInput}
               placeholder="Type a message..."
@@ -230,7 +190,6 @@ if (msg.includes('ok') || msg.includes('okay')) {
               onChangeText={setInputText}
               multiline
             />
-
             <TouchableOpacity style={styles.sendButton} onPress={sendMessage}>
               <Ionicons name="send" size={22} color="#fff" />
             </TouchableOpacity>
@@ -255,41 +214,17 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(150, 80, 200, 0.5)',
   },
   backgroundImage: { flex: 1, width: '100%', height: '100%' },
-  messageRow: {
-    flexDirection: 'row',
-    marginVertical: 4,
-    marginHorizontal: 12,
-    alignItems: 'flex-end',
-  },
+  messageRow: { flexDirection: 'row', marginVertical: 4, marginHorizontal: 12, alignItems: 'flex-end' },
   rightAlign: { alignSelf: 'flex-end' },
   leftAlign: { alignSelf: 'flex-start' },
-  messageBubble: {
-    padding: 10,
-    borderRadius: 12,
-    maxWidth: '70%',
-  },
-  yourBubble: {
-    backgroundColor: 'rgba(150, 80, 200, 0.75)',
-    borderBottomRightRadius: 2,
-  },
-  chatmateBubble: {
-    backgroundColor: 'rgba(230, 210, 250, 0.6)',
-    borderBottomLeftRadius: 2,
-  },
+  messageBubble: { padding: 10, borderRadius: 12, maxWidth: '70%' },
+  yourBubble: { backgroundColor: 'rgba(150, 80, 200, 0.75)', borderBottomRightRadius: 2 },
+  chatmateBubble: { backgroundColor: 'rgba(230, 210, 250, 0.6)', borderBottomLeftRadius: 2 },
   messageText: { fontSize: 16 },
   yourText: { color: '#fff' },
   chatmateText: { color: '#3e206d' },
-  messageImage: {
-    width: 200,
-    height: 200,
-    borderRadius: 10,
-  },
-  avatar: {
-    width: 35,
-    height: 35,
-    borderRadius: 20,
-    marginHorizontal: 5,
-  },
+  messageImage: { width: 200, height: 200, borderRadius: 10 },
+  avatar: { width: 35, height: 35, borderRadius: 20, marginHorizontal: 5 },
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
