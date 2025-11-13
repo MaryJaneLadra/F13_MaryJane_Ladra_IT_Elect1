@@ -15,6 +15,7 @@ export default function App() {
     setupDatabase();
   }, []);
 
+
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
@@ -25,3 +26,4 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   );
+}

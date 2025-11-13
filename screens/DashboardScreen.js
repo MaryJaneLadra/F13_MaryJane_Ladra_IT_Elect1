@@ -10,6 +10,7 @@ export default function DashboardScreen({ navigation, route }) {
     loadUsers();
   }, []);
 
+
   const loadUsers = async () => {
     const all = await getAllUsers();
     setUsers(all.filter(u => u.id !== user.id)); // exclude current user

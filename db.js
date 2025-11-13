@@ -9,6 +9,7 @@ export async function setupDatabase() {
       username TEXT,
       password TEXT,
       bio TEXT
+      photo TEXT
     );
 
     CREATE TABLE IF NOT EXISTS messages (

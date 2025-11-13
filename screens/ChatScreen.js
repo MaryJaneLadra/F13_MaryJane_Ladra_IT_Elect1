@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, TextInput, Button, FlatList, Image } from 'react-native';
 import { getMessagesBetweenUsers, sendMessage } from '../db';
-
 export default function ChatScreen({ route }) {
   const { currentUser, selectedUser } = route.params;
   const [messages, setMessages] = useState([]);
