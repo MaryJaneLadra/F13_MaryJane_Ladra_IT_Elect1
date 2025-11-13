@@ -1,7 +1,12 @@
 {
   "expo": {
+<<<<<<< HEAD
     "name": "SemiAct1",
     "slug": "SemiAct1",
+=======
+    "name": "FinalAct1",
+    "slug": "FinalAct1",
+>>>>>>> b533cf5f (Initial commit for SQLite Chat App)
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -24,6 +29,15 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+<<<<<<< HEAD
     }
   }
 }
+=======
+    },
+    "plugins": [
+      "expo-sqlite"
+    ]
+  }
+}
+>>>>>>> b533cf5f (Initial commit for SQLite Chat App)
