@@ -9,6 +9,15 @@ export async function setupDatabase() {
       username TEXT,
       password TEXT,
       bio TEXT
+      photo TEXT
+    );
+
+    CREATE TABLE IF NOT EXISTS messages (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      sender_id INTEGER,
+      receiver_id INTEGER,
+      message TEXT,
+      timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
     );
   `);
 }
@@ -25,7 +34,7 @@ export async function getUser(username, password) {
     'SELECT * FROM users WHERE username = ? AND password = ?',
     [username, password]
   );
-  return result.length > 0 ? result[0] : null; 
+  return result.length > 0 ? result[0] : null;
 }
 
 export async function getAllUsers() {
@@ -34,6 +43,23 @@ export async function getAllUsers() {
 
 export async function updateUserProfile(id, username, bio) {
   await db.runAsync('UPDATE users SET username = ?, bio = ? WHERE id = ?', [username, bio, id]);
+}
+
+export async function sendMessage(sender_id, receiver_id, message) {
+  await db.runAsync(
+    'INSERT INTO messages (sender_id, receiver_id, message) VALUES (?, ?, ?)',
+    [sender_id, receiver_id, message]
+  );
+}
+
+export async function getMessagesBetweenUsers(user1_id, user2_id) {
+  return await db.getAllAsync(
+    `SELECT * FROM messages 
+     WHERE (sender_id = ? AND receiver_id = ?)
+     OR (sender_id = ? AND receiver_id = ?)
+     ORDER BY timestamp ASC`,
+    [user1_id, user2_id, user2_id, user1_id]
+  );
 }
 
 export default db;

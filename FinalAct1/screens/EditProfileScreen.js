@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { updateUserProfile } from '../db';
 
+
 export default function EditProfileScreen({ route, navigation }) {
   const { user } = route.params;
   const [username, setUsername] = useState(user.username);
