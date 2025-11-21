@@ -1,14 +1,14 @@
 {
   "expo": {
-    "name": "FinalAct1",
-    "slug": "FinalAct1",
-    "version": "1.0.0",
+    "name": "Ladra_M",
+    "slug": "Ladra_M",
+    "version": "1.0.1",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/icon.jpeg",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/splash-icon.png",
+      "image": "./assets/icon.jpeg",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -17,16 +17,23 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.jpeg",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.ladra.mary",
+      "versionCode": 2
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/icon.jpeg"
     },
     "plugins": [
       "expo-sqlite"
-    ]
+    ],
+    "updates": {
+      "enabled": true,
+      "checkAutomatically": "ON_LOAD",
+      "fallbackToCacheTimeout": 0
+    }
   }
 }

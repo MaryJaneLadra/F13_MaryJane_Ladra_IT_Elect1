@@ -40,7 +40,7 @@ export default function ChatScreen({ route }) {
       <Text style={{ fontSize: 18, fontWeight: 'bold', textAlign: 'center', marginBottom: 10 }}>
         Chat with {chatUser.username}
       </Text>
-      
+
 
       <FlatList
         data={messages}

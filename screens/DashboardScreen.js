@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { 
   View, 
   Text, 
-  Button, 
   FlatList, 
   Image, 
   TouchableOpacity, 
@@ -27,10 +26,26 @@ export default function DashboardScreen({ navigation, route }) {
 
   return (
     <ScrollView
-      style={{ flex: 1, backgroundColor: '#F4EEFF' }} // soft pastel lavender
+      style={{ flex: 1, backgroundColor: '#F4EEFF' }}
       contentContainerStyle={{ padding: 20 }}
     >
-      {/* USER CARD */}
+
+      <View style={{ alignItems: 'flex-end', marginBottom: 10 }}>
+        <TouchableOpacity 
+          onPress={() => navigation.replace('Login')}
+          style={{
+            backgroundColor: '#FF6B6B',
+            paddingVertical: 8,
+            paddingHorizontal: 18,
+            borderRadius: 12,
+          }}
+        >
+          <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 15 }}>
+            Logout
+          </Text>
+        </TouchableOpacity>
+      </View>
+
       <View
         style={{
           backgroundColor: '#FFFFFF',
@@ -63,7 +78,7 @@ export default function DashboardScreen({ navigation, route }) {
             borderRadius: 55,
             marginBottom: 12,
             borderWidth: 3,
-            borderColor: '#DCCFFF', // soft purple ring
+            borderColor: '#DCCFFF',
           }}
         />
 
@@ -85,15 +100,29 @@ export default function DashboardScreen({ navigation, route }) {
             paddingVertical: 10,
             paddingHorizontal: 25,
             borderRadius: 12,
+            marginBottom: 12,
           }}
         >
           <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>
             Edit My Profile
           </Text>
         </TouchableOpacity>
+
+        <TouchableOpacity
+          onPress={() => navigation.navigate('About')}
+          style={{
+            backgroundColor: '#6A5ACD',
+            paddingVertical: 10,
+            paddingHorizontal: 25,
+            borderRadius: 12,
+          }}
+        >
+          <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>
+            About
+          </Text>
+        </TouchableOpacity>
       </View>
 
-      {/* USERS HEADER */}
       <Text
         style={{
           fontSize: 22,
@@ -105,7 +134,6 @@ export default function DashboardScreen({ navigation, route }) {
         All Users
       </Text>
 
-      {/* USERS LIST BOX */}
       <View
         style={{
           backgroundColor: '#FFFFFF',
