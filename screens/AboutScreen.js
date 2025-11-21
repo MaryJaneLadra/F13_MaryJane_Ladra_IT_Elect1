@@ -18,6 +18,10 @@ export default function AboutScreen() {
         </View>
 
         <View style={styles.section}>
+          <Text style={styles.label}>Submitted to: Mr.Jay Ian Camelotes</Text>
+        
+        </View>
+        <View style={styles.section}>
           <Text style={styles.label}>Bio</Text>
           <Text style={styles.data}>
             I am MJ Ladra, a 3rd-year BSIT student. I’m introverted and a bit shy, but I stay determined with my studies. I may complain about acads, yet I never let myself get bad grades. I enjoy quiet moments, learning at my own pace, and improving little by little.
