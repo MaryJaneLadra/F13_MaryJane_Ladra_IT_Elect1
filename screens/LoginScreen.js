@@ -46,6 +46,23 @@ export default function LoginScreen({ navigation }) {
       style={{ flex: 1 }}
       resizeMode="cover"
     >
+      <View style={{ position: 'absolute', top: 40, right: 20, zIndex: 10 }}>
+        <Text
+          style={{
+            color: 'white',
+            fontSize: 16,
+            fontWeight: 'bold',
+            textDecorationLine: 'underline',
+            textShadowColor: 'black',
+            textShadowOffset: { width: 1, height: 1 },
+            textShadowRadius: 4,
+          }}
+          onPress={() => navigation.navigate('About')}
+        >
+          About
+        </Text>
+      </View>
+
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={{ flex: 1 }}
@@ -57,7 +74,6 @@ export default function LoginScreen({ navigation }) {
             padding: 30,
           }}
         >
-
           <Text
             style={{
               fontSize: 32,
@@ -140,7 +156,6 @@ export default function LoginScreen({ navigation }) {
           >
             {isSignup ? 'Already have an account? Login' : 'New here? Sign up'}
           </Text>
-
         </ScrollView>
       </KeyboardAvoidingView>
     </ImageBackground>

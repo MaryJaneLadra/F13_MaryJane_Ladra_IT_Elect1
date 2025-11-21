@@ -21,8 +21,8 @@
         "backgroundColor": "#ffffff"
       },
       "edgeToEdgeEnabled": true,
-      "package": "com.ladra.mary",
-      "versionCode": 2
+      "package": "com.ladra.mjladra",
+      "versionCode": 4
     },
     "web": {
       "favicon": "./assets/icon.jpeg"
@@ -34,6 +34,11 @@
       "enabled": true,
       "checkAutomatically": "ON_LOAD",
       "fallbackToCacheTimeout": 0
+    },
+    "extra": {
+      "eas": {
+        "projectId": "de3cd814-3c99-486f-b798-1f4da21f72b4"
+      }
     }
   }
 }

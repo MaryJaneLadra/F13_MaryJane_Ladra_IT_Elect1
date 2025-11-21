@@ -108,19 +108,7 @@ export default function DashboardScreen({ navigation, route }) {
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={() => navigation.navigate('About')}
-          style={{
-            backgroundColor: '#6A5ACD',
-            paddingVertical: 10,
-            paddingHorizontal: 25,
-            borderRadius: 12,
-          }}
-        >
-          <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 16 }}>
-            About
-          </Text>
-        </TouchableOpacity>
+    
       </View>
 
       <Text
